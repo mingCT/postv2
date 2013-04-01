@@ -1,0 +1,31 @@
+<h4><%= @post.title %></h4>
+
+
+<ul>
+<li><strong>
+<%= @post.body %>
+</li></strong>
+</ul><br>
+Users comments:
+<ul>
+  <% @post.comments.reload.each do |comment|  %>
+    <li>
+    	<%= comment.body  %>
+    	by:
+    	<%= comment.user.username %>
+    </li>
+  <% end %>  
+<%= form_for [@post, @comment] do |f| %>
+  <%= render 'shared/errors', obj: @comment %>
+<br>
+<%= f.label :Comment %>
+<%= f.text_area :body, rows: 5 %>
+<br>
+<%= f.submit "Create comment", class: 'btn btn-success' %>
+
+<% end %>
+<br/>
+
+
+
+</ul>

@@ -1,0 +1,31 @@
+<%= render 'shared/content_lead', header: 'All Posts' %>
+
+
+
+
+<ul>
+
+<% @posts.each do |post| %>
+
+	
+
+
+ 	<li class="well well-small"><strong><%= link_to post.title, fix_url(post.url)   %></strong> 
+ 	<br><small>Posted at <%= l post.created_at, :format => :short %> by</small> 
+ 	<%= link_to post.user.username, user_path(post.user) %><br> 
+ 	<%= link_to "Comments", post_path(post.id) %><br> 
+ 	<small>Category:
+ 	<% post.categories.each do |c| %>
+	<%= c.title %>
+
+	
+	<% end %><br>
+	total likes: </small><%= post.total_votes %><br>
+	<%= link_to "Like", vote_post_path(post, vote: true), method: 'post' %> or
+	<%= link_to "Dislike", vote_post_path(post, vote: false), method: 'post' %><br>
+
+ 
+
+<% end %></li>
+</ul>
+	
