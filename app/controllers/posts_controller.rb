@@ -6,11 +6,8 @@ class PostsController < ApplicationController
 
   def index
 
-    unless Post.nil?
-    redirect_to register_path
-    else
     @posts = Post.all
-    end
+
   end
 
   
