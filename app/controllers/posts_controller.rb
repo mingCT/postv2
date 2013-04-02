@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def index
   	@posts = Post.all
-    if @posts.nil? then redirect_to login_path end
+   if @posts.nil? then redirect_to login_path end
   end
   
   def show
