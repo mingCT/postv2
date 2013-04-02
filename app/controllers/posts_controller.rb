@@ -5,13 +5,18 @@ class PostsController < ApplicationController
 
 
   def index
+
+    unless Post.nil?
+    redirect_to register_path
+    else
     @posts = Post.all
+    end
   end
 
   
   def show
     @post = Post.find(params[:id])
-
+    @post.user = current_user
     @comment = @post.comments.build
   end
 
