@@ -10,6 +10,7 @@ class PostsController < ApplicationController
     redirect_to login_path
    else
     @posts = Post.all
+   end
   end
 
 
