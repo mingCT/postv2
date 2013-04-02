@@ -11,7 +11,7 @@
 
  	<li class="well well-small"><strong><%= link_to post.title, fix_url(post.url)   %></strong> 
  	<br><small>Posted at <%= l post.created_at, :format => :short %> by</small> 
- 	<%= link_to post.user.username, user_path(post.user) %><br> 
+ 
  	<%= link_to "Comments", post_path(post.id) %><br> 
  	<small>Category:
  	<% post.categories.each do |c| %>
