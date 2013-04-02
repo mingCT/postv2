@@ -15,4 +15,5 @@ Postit::Application.routes.draw do
     end
   end
   resources :users, only: [:show, :create, :edit, :update]
+  resources :categories, only: [:new, :create]
 end

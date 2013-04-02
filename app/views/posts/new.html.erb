@@ -10,9 +10,13 @@ URL:<br>
 <%= f.text_field :url %><br>
 Body:<br>
 <%= f.text_area :body, rows: 5 %><br>
-Categories: <br>
-<%= f.select :category_ids, Category.all.collect{|c| [c.title, c.id]}, {}, {multiple: 'multiple'} %>
-<br>
+
+
+	<p>Categories </p>
+	<% @cats.each do |c| %>
+		<p><%= check_box_tag 'post[category_ids][]', c.id, @post.categories.include?(c) %>
+		<%= c.title %></p>
+	<% end %>
 
 <%= f.submit class: "btn btn-primary" %><br>
 

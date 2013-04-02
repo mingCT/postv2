@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.new(params[:comment])
     @comment.post_id = @post.id
-    @comment.user_id = 1
+    @comment.user_id = session[:user_id]
 
       if @comment.save
         flash[:notice] = "Your comment was created."

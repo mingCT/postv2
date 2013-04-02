@@ -19,6 +19,8 @@ class ApplicationController < ActionController::Base
     def logged_in?
     	!!current_user  #!! forces boolena return
     end
-
+  def ctgry_all
+   @cats = Category.all
+   end
 
 end
