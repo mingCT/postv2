@@ -5,8 +5,14 @@ class PostsController < ApplicationController
 
 
   def index
-  	@posts = Post.all
-   if @posts.nil? then redirect_to login_path end
+
+   if Post.all.nil?
+    redirect_to login_path
+   else
+    @posts = Post.all
+  end
+
+
   end
   
   def show
